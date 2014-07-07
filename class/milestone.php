@@ -136,7 +136,7 @@ class CPM_Milestone {
             'post_type' => 'milestone',
             'post_parent' => $project_id,
             'numberposts' => -1,
-            'order' => 'DSC',
+            'order' => 'ASC',
             'orderby' => 'menu_order'
         );
 
