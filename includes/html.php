@@ -35,7 +35,7 @@ function cpm_task_html( $task, $project_id, $list_id, $single = false ) {
 
     ob_start();
     ?>
-    <div class="cpm-todo-wrap <?php echo $wrap_class; ?>">
+    <div class="cpm-todo-wrap <?php echo $wrap_class; ?> <?php echo "user";?><?php echo $task->assigned_to; ?>">
 
         <?php if ( $can_manage ) { ?>
             <span class="cpm-todo-action">
@@ -86,7 +86,7 @@ function cpm_task_html( $task, $project_id, $list_id, $single = false ) {
             <?php
             if ( $task->completed != '1' ) {
                 if ( $task->assigned_to != '-1' && !empty($task->assigned_to) ) {    ?>
-                    <span class="cpm-assigned-user"><?php echo cpm_url_user( $task->assigned_to ); ?></span>
+                    <span class="cpm-assigned-user <?php echo "user";?><?php echo $task->assigned_to; ?>"><?php echo cpm_url_user( $task->assigned_to ); ?></span>
                 <?php } ?>
                 
                 <?php 
@@ -435,7 +435,7 @@ function cpm_comment_form( $project_id, $object_id = 0, $comment = null ) {
     <div class="cpm-comment-form-wrap">
 
         <?php if( !$comment ) { ?>
-            <div class="cpm-avatar"><?php echo cpm_url_user( get_current_user_id(), true ); ?></div>
+            <div class="cpm-avatar"><img src="<?php echo get_cupp_meta( get_current_user_id(), true ); ?>"></div>
         <?php } ?>
 
         <form class="cpm-comment-form">
@@ -496,7 +496,7 @@ function cpm_show_comment( $comment, $project_id, $class = '' ) {
     ob_start();
     ?>
     <li class="cpm-comment<?php echo $class; ?>" id="cpm-comment-<?php echo $comment->comment_ID; ?>">
-        <div class="cpm-avatar"><?php echo cpm_url_user( $comment->user_id, true ); ?></div>
+        <div class="cpm-avatar"><img src="<?php echo get_cupp_meta( $comment->user_id, true ); ?>"></div>
         <div class="cpm-comment-container">
             <div class="cpm-comment-meta">
                 <span class="cpm-author"><?php echo cpm_url_user( $comment->user_id ); ?></span>

@@ -43,7 +43,7 @@ $can_create = cpm_user_can_access( $project_id, 'create_message' );
         ?>
         <tr>
             <td class="author">
-                <span class="cpm-avatar"><?php echo cpm_url_user( $message->post_author, true, 32 ); ?></span>
+                <span class="cpm-avatar"><img src="<?php echo get_cupp_meta( $message->post_author, true, 32 ); ?>">
             </td>
             <td class="message">
                 <a href="<?php echo cpm_url_single_message( $project_id, $message->ID ); ?>">

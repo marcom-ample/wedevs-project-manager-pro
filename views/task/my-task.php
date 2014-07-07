@@ -32,24 +32,21 @@ if ( isset( $_GET['tab'] ) && $_GET['tab'] == 'outstanding' ) {
 <div class="wrap cpm my-tasks">
     <h1 class="cpm-my-task"><?php echo $title; ?></h1>
 
-    <ul class="list-inline order-statuses-filter">
-
-        <li <?php echo empty( $page_status ) ? ' class="active"' : ''; ?>>
-            <a href="<?php echo cpm_url_my_task(); ?>">
+    <h2 class="nav-tab-wrapper">
+    <a class="nav-tab" href="<?php echo cpm_url_my_task(); ?>">
                 <?php _e( 'Current Task', 'cpm' ); ?> (<span class="cpm-mytas-current"><?php echo $count['current_task']; ?></span>)
-            </a>
-        </li>
-        <li <?php echo ( $page_status == 'outstanding' ) ? ' class="active"' : ''; ?>>
-            <a href="<?php echo cpm_url_outstanding_task(); ?>" class="cpm-active">
+    </a>
+    
+            <a  class="nav-tab"href="<?php echo cpm_url_outstanding_task(); ?>" class="cpm-active">
                 <?php _e( 'Outstanding Task', 'cpm' ); ?> (<span class="cpm-mytas-outstanding"><?php echo $count['outstanding']; ?></span>)
             </a>
-        </li>
-        <li <?php echo ( $page_status == 'complete' ) ? ' class="active"' : ''; ?>>
-            <a href="<?php echo cpm_url_complete_task(); ?>" class="cpm-active">
+    
+    
+            <a class="nav-tab" href="<?php echo cpm_url_complete_task(); ?>" class="cpm-active">
                 <?php _e( 'Completed Task', 'cpm' ); ?> (<span class="cpm-mytas-complete"><?php echo $count['complete']; ?></span>)
             </a>
-        </li>
-    </ul>
+    
+    </h2>
 
     <h3 class="cpm-no-task" style="display:none;"><?php _e( 'No task found', 'cpmtt' ); ?></h3>
 

@@ -136,8 +136,8 @@ class CPM_Milestone {
             'post_type' => 'milestone',
             'post_parent' => $project_id,
             'numberposts' => -1,
-            'order' => 'DESC',
-            'orderby' => 'ID'
+            'order' => 'DSC',
+            'orderby' => 'menu_order'
         );
 
         if ( $privacy === false ) {
